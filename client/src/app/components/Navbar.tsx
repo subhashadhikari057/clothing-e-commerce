@@ -2,18 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  FiMenu,
-  FiX,
-  FiSearch,
-} from "react-icons/fi";
+import { FiMenu, FiX, FiSearch } from "react-icons/fi";
 import { HiOutlineUser } from "react-icons/hi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaInstagram } from "react-icons/fa";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 export default function Navbar() {
-  /* ─────────── State ─────────── */
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [desktopCurrencyOpen, setDesktopCurrencyOpen] = useState(false);
   const [drawerCurrencyOpen, setDrawerCurrencyOpen] = useState(false);
@@ -21,11 +17,10 @@ export default function Navbar() {
 
   const currencies = ["NPR", "USD", "EUR", "AUD"];
 
-  /* ─────────── JSX ─────────── */
   return (
     <header className="w-full border-b border-gray-200 bg-white">
       {/* ① Top strip */}
-      <p className="text-center text-[11px] poppins-thin uppercase py-2 text-gray-500 tracking-wider">
+      <p className="text-center text-[13px] font-poppins font-thin uppercase py-2 text-grey-900 tracking-wider">
         Complimentary Express Delivery Across Nepal
       </p>
 
@@ -43,7 +38,7 @@ export default function Navbar() {
           </button>
 
           {/* Currency + IG – desktop */}
-          <div className="hidden md:flex items-center gap-6 text-sm poppins-thin text-gray-700">
+          <div className="hidden md:flex items-center gap-6 text-sm font-poppins font-thin text-gray-700">
             {/* Currency dropdown desktop */}
             <div className="relative">
               <button
@@ -71,11 +66,7 @@ export default function Navbar() {
             </div>
 
             {/* Instagram */}
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="hover:text-black"
-            >
+            <a href="#" aria-label="Instagram" className="hover:text-black">
               <FaInstagram className="text-lg" />
             </a>
           </div>
@@ -83,13 +74,14 @@ export default function Navbar() {
 
         {/* ②.b Logo */}
         <Link href="/" aria-label="Ambika Pashmina – Home">
-          <div style={{ height: "48px", width: "auto" }}>
-            <img
-              src="/logo.png"
-              alt="Ambika Logo"
-              className="h-full object-contain"
-            />
-          </div>
+          <Image
+            src="/logo.png"
+            alt="Ambika Logo"
+            priority
+            height={48}
+            width={160}
+            className="object-contain"
+          />
         </Link>
 
         {/* ②.c Right side icons */}
@@ -100,13 +92,13 @@ export default function Navbar() {
           {/* Bag always */}
           <div className="flex items-center gap-1 cursor-pointer hover:text-black">
             <HiOutlineShoppingBag className="text-lg" />
-            <span className="hidden sm:inline poppins-thin text-sm">Bag</span>
+            <span className="hidden sm:inline font-poppins font-thin text-small">Bag</span>
           </div>
         </div>
       </div>
 
       {/* ③ Desktop nav */}
-      <nav className="hidden md:flex justify-center gap-10 text-[13px] poppins-thin text-gray-700 pb-3">
+      <nav className="hidden md:flex justify-center gap-10 text-[15px] font-poppins font-regular text-gray-700 pb-3">
         <Link href="#" className="hover:text-black">Narrative</Link>
 
         {/* Hover dropdown for Shop */}
@@ -133,39 +125,29 @@ export default function Navbar() {
       {/* ④ Mobile drawer */}
       {drawerOpen && (
         <>
-          {/* Backdrop */}
           <div
             className="fixed inset-0 bg-black/40 z-40"
             onClick={() => setDrawerOpen(false)}
           />
 
-          {/* Drawer panel */}
           <aside className="fixed left-0 top-0 h-full w-72 bg-white shadow-lg z-50 flex flex-col">
-            {/* Drawer header */}
             <div className="flex items-center justify-between px-4 py-4 border-b">
               <span className="sr-only">Menu</span>
-              <button
-                aria-label="Close menu"
-                onClick={() => setDrawerOpen(false)}
-              >
+              <button aria-label="Close menu" onClick={() => setDrawerOpen(false)}>
                 <FiX className="text-2xl" />
               </button>
             </div>
 
-            {/* Quick actions row */}
             <div className="flex justify-between px-4 pt-5 pb-6 text-[12px] font-medium uppercase tracking-widest text-gray-600">
               <Link href="#" onClick={() => setDrawerOpen(false)}>Search</Link>
               <Link href="#" onClick={() => setDrawerOpen(false)}>View Account</Link>
             </div>
 
-            {/* Main nav links */}
-            <nav className="flex-1 px-4 space-y-6 text-base text-gray-900 poppins-thin">
-              {/* Narrative */}
+            <nav className="flex-1 px-4 space-y-6 text-base text-gray-900 font-poppins font-thin">
               <Link href="#" onClick={() => setDrawerOpen(false)} className="block">
                 Narrative
               </Link>
 
-              {/* Shop collapsible */}
               <div>
                 <button
                   className="flex items-center justify-between w-full"
@@ -195,7 +177,6 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Remaining links */}
               {["Stockists", "Press", "Journal"].map((i) => (
                 <Link
                   key={i}
@@ -208,11 +189,10 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Currency selector – bottom */}
             <div className="border-t px-4 py-5">
               <button
                 onClick={() => setDrawerCurrencyOpen((p) => !p)}
-                className="flex items-center gap-1 text-sm poppins-thin"
+                className="flex items-center gap-1 text-sm font-poppins font-thin"
               >
                 NPR <ChevronDownIcon className="w-4 h-4" />
               </button>

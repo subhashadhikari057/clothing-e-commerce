@@ -1,28 +1,14 @@
-/* ─── Custom Font: Rusilla Serif Light ─── */
-@font-face {
-  font-family: "Rusilla Serif Light";
-  src: url("/fonts/RusillaSerifLight.woff2") format("woff2"),
-       url("/fonts/RusillaSerifLight.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-
-
 @import "tailwindcss";
 
-/* Global CSS variables */
+/* Global color variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: Arial, Helvetica, sans-serif;
-  --font-mono: monospace;
 }
 
-/* Force light mode only (remove this block to re-enable dark mode later) */
+/* Force light mode only (optional: remove this if supporting dark mode) */
 /*
 @media (prefers-color-scheme: dark) {
   :root {
@@ -32,14 +18,7 @@
 }
 */
 
+/* Apply base styles */
 body {
-  background-color: var(--background) !important;
-  color: var(--foreground) !important;
-  font-family: var(--font-sans);
-}
-
-.poppins-thin {
-  font-family: "Poppins";
-  font-weight: 900;
-  font-style: normal;
+  @apply bg-white text-gray-900 antialiased font-sans;
 }
