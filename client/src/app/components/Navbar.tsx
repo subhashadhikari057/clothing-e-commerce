@@ -19,13 +19,13 @@ export default function Navbar() {
 
   return (
     <header className="w-full border-b border-gray-200 bg-white">
-      {/* ① Top strip */}
-      <p className="text-center text-[13px] font-poppins font-thin uppercase py-2 text-grey-900 tracking-wider">
+      {/* ① Top strip (shorter) */}
+      <p className="text-center text-[11px] font-poppins font-thin uppercase py-1 text-gray-900 tracking-wider">
         Complimentary Express Delivery Across Nepal
       </p>
 
-      {/* ② Main row */}
-      <div className="flex items-center justify-between max-w-7xl mx-auto px-4 md:px-6 py-4">
+      {/* ② Main row (shorter) */}
+      <div className="flex items-center justify-between max-w-7xl mx-auto px-4 md:px-6 py-2">
         {/* ②.a Left side */}
         <div className="flex items-center gap-4 md:gap-6">
           {/* Hamburger – mobile */}
@@ -39,7 +39,6 @@ export default function Navbar() {
 
           {/* Currency + IG – desktop */}
           <div className="hidden md:flex items-center gap-6 text-sm font-poppins font-thin text-gray-700">
-            {/* Currency dropdown desktop */}
             <div className="relative">
               <button
                 onClick={() => setDesktopCurrencyOpen((p) => !p)}
@@ -64,22 +63,20 @@ export default function Navbar() {
                 </ul>
               )}
             </div>
-
-            {/* Instagram */}
-            <a href="#" aria-label="Instagram" className="hover:text-black">
+            <a href="https://www.instagram.com/ambikapashmina?igsh=M2lkdzZoenAyeWU5" aria-label="Instagram" className="hover:text-black">
               <FaInstagram className="text-lg" />
             </a>
           </div>
         </div>
 
-        {/* ②.b Logo */}
+        {/* ②.b Logo (smaller) */}
         <Link href="/" aria-label="Ambika Pashmina – Home">
           <Image
             src="/logo.png"
             alt="Ambika Logo"
             priority
-            height={48}
-            width={160}
+            height={32} /* ↓ reduced */
+            width={140} /* adjust to keep aspect ratio */
             className="object-contain"
           />
         </Link>
@@ -88,20 +85,19 @@ export default function Navbar() {
         <div className="flex items-center gap-4 md:gap-6 text-gray-700">
           <FiSearch className="hidden md:inline text-lg cursor-pointer hover:text-black" />
           <HiOutlineUser className="hidden md:inline text-lg cursor-pointer hover:text-black" />
-
-          {/* Bag always */}
           <div className="flex items-center gap-1 cursor-pointer hover:text-black">
             <HiOutlineShoppingBag className="text-lg" />
-            <span className="hidden sm:inline font-poppins font-thin text-small">Bag</span>
+            <span className="hidden sm:inline font-poppins font-thin text-sm">
+              Bag
+            </span>
           </div>
         </div>
       </div>
 
-      {/* ③ Desktop nav */}
-      <nav className="hidden md:flex justify-center gap-10 text-[15px] font-poppins font-regular text-gray-700 pb-3">
+      {/* ③ Desktop nav (slightly less bottom padding) */}
+      <nav className="hidden md:flex justify-center gap-10 text-[14px] font-poppins font-extralight text-gray-700 pb-2">
         <Link href="#" className="hover:text-black">Narrative</Link>
 
-        {/* Hover dropdown for Shop */}
         <div className="relative group">
           <button className="flex items-center gap-1 hover:text-black">
             Shop <ChevronDownIcon className="w-4 h-4" />
@@ -122,17 +118,15 @@ export default function Navbar() {
         ))}
       </nav>
 
-      {/* ④ Mobile drawer */}
+      {/* ④ Mobile drawer (unchanged) */}
       {drawerOpen && (
         <>
           <div
             className="fixed inset-0 bg-black/40 z-40"
             onClick={() => setDrawerOpen(false)}
           />
-
           <aside className="fixed left-0 top-0 h-full w-72 bg-white shadow-lg z-50 flex flex-col">
             <div className="flex items-center justify-between px-4 py-4 border-b">
-              <span className="sr-only">Menu</span>
               <button aria-label="Close menu" onClick={() => setDrawerOpen(false)}>
                 <FiX className="text-2xl" />
               </button>
@@ -155,9 +149,7 @@ export default function Navbar() {
                 >
                   <span>Shop</span>
                   <ChevronDownIcon
-                    className={`w-5 h-5 transition-transform ${
-                      shopDrawerOpen ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 transition-transform ${shopDrawerOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 {shopDrawerOpen && (
@@ -178,12 +170,7 @@ export default function Navbar() {
               </div>
 
               {["Stockists", "Press", "Journal"].map((i) => (
-                <Link
-                  key={i}
-                  href="#"
-                  onClick={() => setDrawerOpen(false)}
-                  className="block"
-                >
+                <Link key={i} href="#" onClick={() => setDrawerOpen(false)} className="block">
                   {i}
                 </Link>
               ))}

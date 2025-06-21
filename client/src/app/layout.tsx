@@ -6,14 +6,14 @@ import Navbar from "./components/Navbar";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-  weight: ["100", "300", "400"],   // thin, light, regular
+  weight: ["100","200", "300", "400"],   // thin,extralight, light, regular
   subsets: ["latin"],
   variable: "--font-poppins",      // gives us a CSS variable
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Ambika Pashmina",
+  title: "Ambika",
   description: "Elegant and minimal Pashmina store",
 };
 
