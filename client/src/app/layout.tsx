@@ -2,15 +2,18 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 
-/* ✅ NEW */
 import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 
+/* Google – Poppins (already there) */
 const poppins = Poppins({
-  weight: ["100","200", "300", "400"],   // thin,extralight, light, regular
+  weight: ["100", "200", "300", "400"],
   subsets: ["latin"],
-  variable: "--font-poppins",      // gives us a CSS variable
+  variable: "--font-poppins",   // <- creates CSS var
   display: "swap",
 });
+
+
 
 export const metadata: Metadata = {
   title: "Ambika",
@@ -22,10 +25,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  /* put BOTH variables on <html> */
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${poppins.variable}}`}>
       <body className="bg-white text-gray-900 antialiased font-sans">
-
         <Navbar />
         {children}
       </body>
