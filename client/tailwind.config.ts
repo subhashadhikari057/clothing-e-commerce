@@ -5,9 +5,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-poppins)', 'sans-serif'], // keep as default
-        poppins: ['var(--font-poppins)', 'sans-serif'],
-        custom: ['MyCustomFont', 'sans-serif'], // 👈 your custom font class
+          sans: ['var(--font-cormorant)', 'serif'],
+  cormorant: ['var(--font-cormorant)', 'serif'],// 👈 your custom font class
       },
     },
   },

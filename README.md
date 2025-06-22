@@ -17,7 +17,7 @@ A refined and minimal e-commerce frontend built with **Next.js 14** and **Tailwi
 - **Framework:** [Next.js 14 (App Router)](https://nextjs.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 - **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
-- **Font:** Custom `Poppins` & RusillaSerif branding
+- **Font:** Custom `cormorant ` & RusillaSerif branding
 - **Language:** TypeScript
 
 ## 📂 Folder Structure

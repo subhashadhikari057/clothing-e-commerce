@@ -23,7 +23,7 @@ export default function Navbar() {
     /* ↓ pt-1 mobile, pt-3 desktop */
     <header className="w-full border-b border-gray-200 bg-white pt-1 md:pt-3">
       {/* Top notice strip */}
-      <p className="py-0.5 text-center text-[10px] font-poppins font-thin uppercase tracking-wider text-gray-900">
+      <p className="py-0.5 text-center text-[10px] font-cormorant  font-sm uppercase tracking-wider text-gray-900">
         Complimentary Express Delivery Worldwide
       </p>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
           </button>
 
           {/* Desktop currency + IG */}
-          <div className="hidden items-center gap-10 text-sm font-poppins font-thin text-gray-700 md:flex">
+          <div className="hidden items-center gap-10 text-sm font-cormorant  font-sm text-gray-700 md:flex">
             <div
               className="relative"
               onMouseEnter={() => setDesktopCurrencyOpen(true)}
@@ -113,7 +113,7 @@ export default function Navbar() {
           <HiOutlineUser className="hidden text-lg hover:text-black md:inline" />
           <div className="flex cursor-pointer items-center gap-1 hover:text-black">
             <HiOutlineShoppingBag className="text-lg" />
-            <span className="hidden font-poppins font-thin text-sm sm:inline">
+            <span className="hidden font-cormorant  font-sm text-sm sm:inline">
               Bag
             </span>
           </div>
@@ -121,7 +121,7 @@ export default function Navbar() {
       </div>
 
       {/* ── Desktop Nav Row ─────────────────────────────────────── */}
-      <nav className="hidden md:flex justify-center gap-10 text-[11px] font-poppins font-thin text-gray-700 mb-3">
+      <nav className="hidden md:flex justify-center gap-10 text-[11px] font-cormorant  font-sm text-gray-700 mb-3">
         <Link href="#" className="hover:text-black">NARRATIVE</Link>
 
         <div
@@ -171,7 +171,7 @@ export default function Navbar() {
               <Link href="#" onClick={() => setDrawerOpen(false)}>Search</Link>
               <Link href="#" onClick={() => setDrawerOpen(false)}>Account</Link>
             </div>
-            <nav className="flex-1 space-y-6 px-4 font-poppins font-thin text-base text-gray-900">
+            <nav className="flex-1 space-y-6 px-4 font-cormorant  font-sm text-base text-gray-900">
               <Link
                 href="#"
                 onClick={() => setDrawerOpen(false)}
@@ -223,7 +223,7 @@ export default function Navbar() {
             <div className="border-t px-4 py-4">
               <button
                 onClick={() => setDrawerCurrencyOpen((p) => !p)}
-                className="flex items-center gap-1 text-sm font-poppins font-thin"
+                className="flex items-center gap-1 text-sm font-cormorant  font-thin"
               >
                 {selectedCurrency} <ChevronDownIcon className="h-4 w-4" />
               </button>
