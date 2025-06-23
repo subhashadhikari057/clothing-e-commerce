@@ -26,8 +26,9 @@ export default function SignupPage() {
       await registerUser(formData);
       toast.success("Account created successfully!");
       router.push("/auth/login");
-    } catch (err: any) {
-      toast.error(err.message || "Signup failed");
+    } catch (err) {
+  const errorMsg = (err as Error).message || "Signup failed";
+  toast.error(errorMsg);
     } finally {
       setLoading(false);
     }

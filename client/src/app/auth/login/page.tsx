@@ -43,8 +43,9 @@ export default function LoginPage() {
       } else {
         router.push("/");
       }
-    } catch (err: any) {
-      toast.error(err.message || "Login failed");
+    } catch (err) {
+  const errorMsg = (err as Error).message || "Login failed";
+  toast.error(errorMsg);
     } finally {
       setLoading(false);
     }
