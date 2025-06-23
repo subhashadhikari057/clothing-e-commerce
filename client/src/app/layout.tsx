@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import { Cormorant_Garamond } from "next/font/google"; // 👈 NEW luxury font
 import Footer from "./components/Footer";
-
+import { Toaster } from 'react-hot-toast'
 // Load Cormorant Garamond
 const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500", "600", "700"],  // available static weights
@@ -47,6 +47,7 @@ export default function RootLayout({
         <Navbar />
         
         {children}
+        <Toaster position="top-right" />
         <Footer/>
       </body>
     </html>
