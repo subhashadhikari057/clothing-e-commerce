@@ -1,16 +1,16 @@
-/**
- * src/utils/generateToken.js
- * --------------------------
- * Creates a signed JWT with user ID payload.
- * Used for login and protected routes.
- */
-
 const jwt = require("jsonwebtoken");
 
-const generateToken = (userId) => {
-  return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN || "7d",
-  });
+const generateToken = (user) => {
+  return jwt.sign(
+    {
+      id: user._id,
+      role: user.role, // ✅ include role
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+    }
+  );
 };
 
 module.exports = generateToken;

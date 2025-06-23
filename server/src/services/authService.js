@@ -17,7 +17,7 @@ exports.registerUser = async ({ name, email, password }) => {
     name: user.name,
     email: user.email,
     role: user.role,
-    token: generateToken(user._id),
+    token: generateToken(user),
   };
 };
 
@@ -29,7 +29,7 @@ exports.loginUser = async ({ email, password }) => {
     throw new CustomError("Invalid credentials", 401, "AUTH_ERROR");
   }
 
-  const token = generateToken(user._id);
+  const token = generateToken(user);
 
   return {
     token,
@@ -61,7 +61,7 @@ exports.refreshUserToken = async (token) => {
     throw new CustomError("User not found", 401, "NOT_FOUND");
   }
 
-  const newToken = generateToken(user._id);
+  const newToken = generateToken(user);
 
   return {
     token: newToken,
