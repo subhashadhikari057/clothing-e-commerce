@@ -38,13 +38,13 @@ const categories: Category[] = [
   },
 ];
 
-/* ——— Individual Card ——— */
+/* ——— Card (no curves) ——— */
 function CategoryCard({ category }: { category: Category }) {
   const [hovered, setHovered] = useState(false);
 
   return (
     <div
-      className="group cursor-pointer overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]"
+      className="group cursor-pointer overflow-hidden transition-transform duration-500 hover:scale-[1.02]"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -59,7 +59,7 @@ function CategoryCard({ category }: { category: Category }) {
           }`}
         />
 
-        {/* Desktop Overlay */}
+        {/* Desktop overlay */}
         <div className="hidden md:block absolute inset-0">
           <div
             className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 ${
@@ -77,7 +77,7 @@ function CategoryCard({ category }: { category: Category }) {
         </div>
       </div>
 
-      {/* Mobile Title */}
+      {/* Mobile label */}
       <h3 className="mt-2 text-center text-[13px] text-gray-800 md:hidden">
         {category.name}
       </h3>
@@ -85,11 +85,11 @@ function CategoryCard({ category }: { category: Category }) {
   );
 }
 
-/* ——— Showcase Section ——— */
+/* ——— Showcase ——— */
 export default function CategoryShowcase() {
   return (
     <section className="w-full max-w-5xl mx-auto px-4 py-6 sm:py-10 font-cormorant">
-      {/* Section Heading */}
+      {/* Heading */}
       <div className="text-center mb-8">
         <div className="text-stone-400 text-xs tracking-widest uppercase mb-2">
           Nepal&rsquo;s Heritage Weave
@@ -97,7 +97,7 @@ export default function CategoryShowcase() {
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
           Cashmere Collections
         </h2>
-        <div className="w-10 h-[2px] bg-stone-400 mx-auto my-3 rounded-full" />
+        <div className="w-10 h-[2px] bg-stone-400 mx-auto my-3" />
         <p className="text-sm sm:text-base text-gray-600 max-w-md mx-auto font-light">
           Softness in every thread, elegance in every fold.
         </p>
@@ -105,14 +105,14 @@ export default function CategoryShowcase() {
 
       {/* Grid */}
       <div className="grid grid-cols-2 gap-3 sm:gap-5">
-        {categories.map((cat) => (
-          <CategoryCard key={cat.id} category={cat} />
+        {categories.map((c) => (
+          <CategoryCard key={c.id} category={c} />
         ))}
       </div>
 
-      {/* Call to Action */}
+      {/* CTA button (square) */}
       <div className="text-center mt-10">
-        <button className="bg-gray-900 text-white px-6 py-3 rounded-full text-sm tracking-wide hover:bg-gray-800 transition">
+        <button className="bg-gray-900 text-white px-6 py-3 text-sm tracking-wide hover:bg-gray-800 transition">
           View All Pashmina
         </button>
       </div>
