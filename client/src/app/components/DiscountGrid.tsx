@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 const DISCOUNTS = [
   {
     label: "FLAT 80% OFF",
@@ -18,7 +20,7 @@ const DISCOUNTS = [
 export default function DiscountGrid() {
   return (
     <section className="py-10 px-4 bg-white font-cormorant text-gray-800">
-      {/* section title */}
+      {/* Section Title */}
       <div className="text-center mb-8">
         <div className="text-stone-400 text-xs tracking-widest uppercase mb-2">
           Explore Great Savings
@@ -32,15 +34,17 @@ export default function DiscountGrid() {
         </p>
       </div>
 
-      {/* responsive grid */}
+      {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {DISCOUNTS.map((d, i) => (
           <div key={i} className="overflow-hidden rounded-lg shadow-sm">
-            <div className="h-[240px] sm:h-[340px]">
-              <img
+            <div className="relative w-full h-[220px] sm:h-[300px]">
+              <Image
                 src={d.image}
                 alt={d.label}
-                className="w-full h-full object-cover transition-transform duration-300 hover:scale-[1.05]"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
             <div className="bg-stone-100 text-center py-4 text-base sm:text-lg font-semibold tracking-wider uppercase">
