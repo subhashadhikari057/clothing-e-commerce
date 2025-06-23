@@ -23,7 +23,7 @@ export default function Navbar() {
     /* ↓ pt-1 mobile, pt-3 desktop */
     <header className="w-full border-b border-gray-200 bg-white pt-1 md:pt-3">
       {/* Top notice strip */}
-      <p className="py-0.5 text-center text-[10px] font-cormorant  font-sm uppercase tracking-wider text-gray-900">
+      <p className="py-0.5 text-center text-[10px] font-cormorant  font-medium uppercase tracking-wider text-gray-900">
         Complimentary Express Delivery Worldwide
       </p>
 
@@ -40,7 +40,7 @@ export default function Navbar() {
           </button>
 
           {/* Desktop currency + IG */}
-          <div className="hidden items-center gap-10 text-sm font-cormorant  font-sm text-gray-700 md:flex">
+          <div className="hidden items-center gap-10 text-medium font-cormorant  font-sm text-gray-700 md:flex">
             <div
               className="relative"
               onMouseEnter={() => setDesktopCurrencyOpen(true)}
@@ -113,7 +113,7 @@ export default function Navbar() {
           <HiOutlineUser className="hidden text-lg hover:text-black md:inline" />
           <div className="flex cursor-pointer items-center gap-1 hover:text-black">
             <HiOutlineShoppingBag className="text-lg" />
-            <span className="hidden font-cormorant  font-sm text-sm sm:inline">
+            <span className="hidden font-cormorant  font-medium text-sm sm:inline">
               Bag
             </span>
           </div>
@@ -121,7 +121,7 @@ export default function Navbar() {
       </div>
 
       {/* ── Desktop Nav Row ─────────────────────────────────────── */}
-      <nav className="hidden md:flex justify-center gap-10 text-[11px] font-cormorant  font-sm text-gray-700 mb-3">
+      <nav className="hidden md:flex justify-center gap-10 text-[13px] font-cormorant  font-medium text-gray-700 mb-3">
         <Link href="#" className="hover:text-black">NARRATIVE</Link>
 
         <div

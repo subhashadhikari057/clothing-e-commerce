@@ -17,7 +17,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Story Text ───────────────────────────────────── */}
-      <div className="max-w-[680px] mx-auto px-4 sm:px-6 text-center py-6 sm:py-8 md:py-10 text-gray-700 space-y-6 font-cormorant  font-sm italic text-[11px] leading-relaxed">
+      <div className="max-w-[680px] mx-auto px-4 sm:px-6 text-center py-6 sm:py-8 md:py-10 text-gray-700 space-y-6 font-cormorant  font-medium italic text-[16px] leading-relaxed">
         <p>
           pashmina, from the persian word <em>“pashm”</em> meaning wool, embodies
           softness, strength, and centuries of himalayan heritage. at{" "}

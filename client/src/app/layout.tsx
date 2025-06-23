@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import { Cormorant_Garamond } from "next/font/google"; // 👈 NEW luxury font
+import Footer from "./components/Footer";
 
 // Load Cormorant Garamond
 const cormorant = Cormorant_Garamond({
@@ -44,7 +45,9 @@ export default function RootLayout({
     <html lang="en" className={cormorant.variable}>
       <body className="bg-white text-gray-900 antialiased font-sans">
         <Navbar />
+        
         {children}
+        <Footer/>
       </body>
     </html>
   );
