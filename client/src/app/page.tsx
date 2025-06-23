@@ -8,8 +8,9 @@ export default function Home() {
     <main>
       <HeroSection/>
      
-      <WhyChooseUs/>
+      
       <CategoryShowcase/>
+      <WhyChooseUs/>
       
 
       
