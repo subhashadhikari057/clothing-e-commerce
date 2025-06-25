@@ -1,42 +1,46 @@
 const dotenv = require("dotenv");
-dotenv.config(); // ✅ load env vars first!
+dotenv.config();           // load env vars first
 
-const express = require("express");
-const cors = require("cors");
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/authRoutes");
+const express      = require("express");
+const cors         = require("cors");
 const cookieParser = require("cookie-parser");
+const mongoSanitize= require("express-mongo-sanitize");
+const passport     = require("passport");
+
+const connectDB    = require("./config/db");
+const authRoutes   = require("./routes/authRoutes");
 const errorHandler = require("./middleware/errorHandler");
-const mongoSanitize = require("express-mongo-sanitize");
 const { generalLimiter } = require("./middleware/rateLimiter");
-const passport = require("passport");
-require("./config/passport"); // ✅ now env vars will be loaded correctly
+require("./config/passport");
 
-
-
-
-
-
-dotenv.config();
 const app  = express();
 const PORT = process.env.PORT || 8080;
 
-app.use(cors());
+/* ── CORS with credentials ───────────────────────────── */
+app.use(
+  cors({
+    origin: ["http://localhost:3000"], // add https://ambika-pashmina.com later
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  })
+);
+
+/* ── Global middleware ───────────────────────────────── */
 app.use(express.json());
 app.use(cookieParser());
-app.use(generalLimiter); // Global rate limiting for all routes
+app.use(generalLimiter);
 app.use(mongoSanitize());
 app.use(passport.initialize());
 
-
+/* ── Routes ──────────────────────────────────────────── */
 app.get("/", (_req, res) => res.send("Ambika Pashmina API 🧣 is running"));
-
 app.use("/api/auth", authRoutes);
-app.use(errorHandler); // ⬅️ must be last
 
+/* ── Error handler (must be last) ───────────────────── */
+app.use(errorHandler);
 
-connectDB();                                // NEW
-
-app.listen(PORT, () => {
-  console.log(`➜  API ready at http://localhost:${PORT}`);
-});
+/* ── Start server ───────────────────────────────────── */
+connectDB();
+app.listen(PORT, () =>
+  console.log(`➜  API ready at http://localhost:${PORT}`)
+);
