@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import InputField from "@/app/components/ui/InputField";
 import { registerUser } from "@/app/services/authService";
 import { toast } from "react-hot-toast";
+import GoogleButton from "@/app/components/ui/GoogleButton";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -83,6 +84,10 @@ export default function SignupPage() {
             Login
           </button>
         </div>
+        <div className="mt-4">
+  <GoogleButton />
+</div>
+
       </form>
     </section>
   );

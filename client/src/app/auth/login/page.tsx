@@ -6,6 +6,7 @@ import InputField from "@/app/components/ui/InputField";
 import { loginUser } from "@/app/services/authService";
 import { toast } from "react-hot-toast";
 import { jwtDecode } from "jwt-decode";
+import GoogleButton from "@/app/components/ui/GoogleButton";
 
 interface DecodedToken {
   id: string;
@@ -92,6 +93,9 @@ export default function LoginPage() {
             Sign up
           </button>
         </div>
+        <div className="mt-4">
+  <GoogleButton />
+</div>
       </form>
     </section>
   );
