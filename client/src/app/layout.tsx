@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 /* ---------- Client-side providers ---------- */
-import Providers from "@/app/providers";
+import Providers from "@/providers";
 
 export default function RootLayout({
   children,

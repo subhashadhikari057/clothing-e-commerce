@@ -88,7 +88,6 @@ router.get(
 router.post("/google", async (req, res) => {
   try {
     const { token: accessToken } = req.body;
-    console.log("🔐 Token received at backend:", accessToken); // ✅ LOG THIS
     if (!accessToken)
       return res.status(400).json({ message: "Token missing" });
 
